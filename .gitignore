@@ -1,0 +1,18 @@
+# Bỏ qua môi trường ảo (TUYỆT ĐỐI KHÔNG ĐẨY LÊN)
+qc_automation_env/
+
+# Bỏ qua các bài tập cũ không thuộc Mini Project
+Week_*/
+questions
+variables/
+resources/
+
+# Bỏ qua các file sinh ra trong quá trình chạy
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Bỏ qua hình ảnh lỗi chụp màn hình (chỉ giữ thư mục trống)
+results/screenshots/*.png
+results/reports/*.json
+*~

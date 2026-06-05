@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./qc_automation_env/Lib/site-packages"
+    ]
+}
