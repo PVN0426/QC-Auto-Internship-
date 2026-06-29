@@ -16,3 +16,8 @@ __pycache__/
 results/screenshots/*.png
 results/reports/*.json
 *~
+allure-results/
+allure-report/
+.idea/
+.DS_Store
+Thumbs.db
