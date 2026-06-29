@@ -1,0 +1,120 @@
+{
+    "auth": {
+        "tc01_valid_login": {
+            "username": "admin",
+            "password": "password123",
+            "expected_status": 200,
+            "expected_key": "token"
+        },
+        "tc02_invalid_login": {
+            "username": "admin",
+            "password": "wrong_password_123",
+            "expected_status": 200,
+            "expected_reason": "Bad credentials"
+        }
+    },
+    "create_booking": {
+        "tc03_valid_booking": {
+            "payload": {
+                "firstname": "Dieu",
+                "lastname": "Ho",
+                "totalprice": 150,
+                "depositpaid": true,
+                "bookingdates": {
+                    "checkin": "2026-07-01",
+                    "checkout": "2026-07-10"
+                },
+                "additionalneeds": "Breakfast"
+            },
+            "expected_status": 200
+        },
+        "tc04_missing_additionalneeds": {
+            "payload": {
+                "firstname": "Kim",
+                "lastname": "Nguyen",
+                "totalprice": 200,
+                "depositpaid": false,
+                "bookingdates": {
+                    "checkin": "2026-08-01",
+                    "checkout": "2026-08-05"
+                }
+            },
+            "expected_status": 200
+        },
+        "tc05_price_boundary_zero": {
+            "payload": {
+                "firstname": "Alex",
+                "lastname": "Smith",
+                "totalprice": 0,
+                "depositpaid": true,
+                "bookingdates": {
+                    "checkin": "2026-09-01",
+                    "checkout": "2026-09-05"
+                },
+                "additionalneeds": "Late Checkout"
+            },
+            "expected_status": 200
+        },
+        "tc06_empty_firstname": {
+            "payload": {
+                "firstname": "",
+                "lastname": "Watson",
+                "totalprice": 100,
+                "depositpaid": true,
+                "bookingdates": {
+                    "checkin": "2026-10-01",
+                    "checkout": "2026-10-05"
+                }
+            },
+            "expected_status": 200
+        }
+    },
+    "get_booking": {
+        "tc09_invalid_id": {
+            "booking_id": 9999999,
+            "expected_status": 404
+        }
+    },
+    "update_booking": {
+        "tc11_update_lastname": {
+            "payload": {
+                "firstname": "Dieu",
+                "lastname": "Ho Updated",
+                "totalprice": 150,
+                "depositpaid": true,
+                "bookingdates": {
+                    "checkin": "2026-07-01",
+                    "checkout": "2026-07-10"
+                },
+                "additionalneeds": "Breakfast"
+            },
+            "expected_status": 200
+        },
+        "tc12_update_multiple_fields": {
+            "payload": {
+                "firstname": "Diệu VIP",
+                "lastname": "Hồ",
+                "totalprice": 500,
+                "depositpaid": false,
+                "bookingdates": {
+                    "checkin": "2026-07-02",
+                    "checkout": "2026-07-12"
+                },
+                "additionalneeds": "Super Breakfast & Spa"
+            },
+            "expected_status": 200
+        },
+        "tc13_fake_token": {
+            "token": "bad_token_12345",
+            "expected_status": 403
+        }
+    },
+    "delete_booking": {
+        "tc14_delete_success": {
+            "expected_delete_status": 201
+        },
+        "tc15_verify_deleted": {
+            "expected_get_status": 404
+        }
+    }
+}
